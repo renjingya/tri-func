@@ -29,6 +29,7 @@ function x = arctan(a)
      end
      x=(ai+ai+i)/2;
      x= (x/pi)*180;
+     
  end
  if (a<0)
        i=0.1;
@@ -36,7 +37,7 @@ function x = arctan(a)
       ai=k;
       while(1)
         
-          if(ai-i>-pi/2)
+          if(ai-i<-pi/2)
               break;
           end
           if((SIN(ai)/COS(ai)-a)*(SIN(ai-i)/COS(ai-i)-a)==0)
