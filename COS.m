@@ -1,4 +1,5 @@
 function y=COS(x)
+ x= (x/180)*pi;
     precision=100;
     y=1;
     for i=1:precision
