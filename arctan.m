@@ -12,13 +12,20 @@ function x = arctan(a)
           if(ai+i>pi/2)
               break;
           end
+          ai= (ai/pi)*180;
+          i=(i/pi)*180;
           if((SIN(ai)/COS(ai)-a)*(SIN(ai+i)/COS(ai+i)-a)==0)
-              x=ai+i;
+              ai= (ai/180)*pi;
+              i= (i/180)*pi;
               break;
           end
            if((SIN(ai)/COS(ai)-a)*(SIN(ai+i)/COS(ai+i)-a)<0)
+               ai= (ai/180)*pi;
+               i= (i/180)*pi;
               break;
            end
+          ai= (ai/180)*pi;
+          i= (i/180)*pi;
           ai=ai+i;
       end
       if(i<0.0000000001)
@@ -36,17 +43,23 @@ function x = arctan(a)
      while(1)
       ai=k;
       while(1)
-        
           if(ai-i<-pi/2)
               break;
           end
+          ai= (ai/pi)*180;
+          i=(i/pi)*180;
           if((SIN(ai)/COS(ai)-a)*(SIN(ai-i)/COS(ai-i)-a)==0)
-              x=ai+i;
+               ai= (ai/180)*pi;
+               i= (i/180)*pi;
               break;
           end
            if((SIN(ai)/COS(ai)-a)*(SIN(ai-i)/COS(ai-i)-a)<0)
+               ai= (ai/180)*pi;
+               i= (i/180)*pi;
               break;
            end
+               ai= (ai/180)*pi;
+               i= (i/180)*pi;
           ai=ai-i;
       end
       if(i<0.0000000001)
