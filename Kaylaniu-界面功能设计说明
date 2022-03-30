@@ -1,0 +1,130 @@
+牛慧界面详细设计
+一、设计目标和任务
+在输入一个数后，可以实现科学计算函数，包括正弦sin、余弦cos、反正弦arcsin、反正切arctan四个三角函数的计算，并能将结果显示在界面上。
+二、各功能界面设计
+1、GUI设计界面
+
+2、流程图
+
+三、‍各功能模块实现
+算法设计：
+A.数字键设计：0-9以及小数点函数相同，参数不同：
+function pushbutton1_Callback(hObject, eventdata, handles)
+textString = get(handles.edit1,'String');%实现一个连号输入
+textString = strcat(textString,'1');
+set(handles.edit1,'String',textString);
+
+B.=的实现：：
+function pushbutton15_Callback(hObject, eventdata, handles)
+textString = get(handles.edit1,'String');
+ans=eval(textString);
+set(handles.edit1,'String',ans);
+
+C.三角函数的实现；
+sin函数；
+unction y= SIN(x)
+x= (x/180)*pi;
+precision=100;
+y=0;
+for i=1:precision
+y=y+(-1)^(i-1)*x^(2*i-1)/Factorial(2*i-1);
+end
+end
+
+cos函数；
+function y=COS(x)
+x= (x/180)*pi;
+precision=100;
+y=1;
+for i=1:precision
+y=y+(-1)^(i)*x^(2*i)/Factorial(2*i);
+end
+end
+
+arcsin函数；
+function result_arcsin=arcsin(x)
+if x >= -1 &&x < -0.5
+result_arcsin = -arctan(sqrt(1 - x * x) / x) - 2 * arctan(1);
+elseif x >= -0.5 && x <= 0.5
+result_arcsin = arctan(x / sqrt(1 - x * x));
+elseif x > 0.5 && x <= 1 
+result_arcsin = -arctan(sqrt(1 - x * x) / x) + 2 * arctan(1);
+else 
+result_arcsin="INPUT ERROR!";
+end
+end
+
+arctan函数：
+function x = arctan(a)
+k=0;
+if(a==0)
+x=0;
+end
+if (a>0)
+i=0.1;
+while(1)
+ai=k;
+while(1)
+if(ai+i>pi/2)
+break;
+end
+ai= (ai/pi)*180;
+i=(i/pi)*180;
+if((SIN(ai)/COS(ai)-a)*(SIN(ai+i)/COS(ai+i)-a)==0)
+ai= (ai/180)*pi;
+i= (i/180)*pi;
+break;
+end
+if((SIN(ai)/COS(ai)-a)*(SIN(ai+i)/COS(ai+i)-a)<0)
+ai= (ai/180)*pi;
+i= (i/180)*pi;
+break;
+end
+ai= (ai/180)*pi;
+i= (i/180)*pi;
+ai=ai+i;
+end
+if(i<0.0000000001)
+break;
+end
+i=i/10;
+k=ai;
+end
+x=(ai+ai+i)/2;
+x= (x/pi)*180;
+end
+if (a<0)
+i=0.1;
+while(1)
+ai=k;
+while(1)
+if(ai-i<-pi/2)
+break;
+end
+ai= (ai/pi)*180;
+i=(i/pi)*180;
+if((SIN(ai)/COS(ai)-a)*(SIN(ai-i)/COS(ai-i)-a)==0)
+ai= (ai/180)*pi;
+i= (i/180)*pi;
+break;
+end
+if((SIN(ai)/COS(ai)-a)*(SIN(ai-i)/COS(ai-i)-a)<0)
+ai= (ai/180)*pi;
+i= (i/180)*pi;
+break;
+end
+ai= (ai/180)*pi;
+i= (i/180)*pi;
+ai=ai-i;
+end
+if(i<0.0000000001)
+break;
+end
+i=i/10;
+k=ai;
+end
+x=(ai+ai-i)/2;
+x= (x/pi)*180;
+end
+end
+
