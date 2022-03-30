@@ -1,2 +1,2 @@
-# test_software
-现代软件课程测试
+# software_class
+现代软件课程
