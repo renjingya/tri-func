@@ -1,4 +1,3 @@
-%此函数用于计算反正切函数,计算出的值是角度值，比如输入1，输出是45度
 function x = arctan(a)
  k=0;
  if(a==0)
@@ -72,4 +71,3 @@ function x = arctan(a)
      x= (x/pi)*180;
  end
 end
-
