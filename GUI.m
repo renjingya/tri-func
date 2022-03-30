@@ -22,7 +22,7 @@ function varargout = GUI(varargin)
 
 % Edit the above text to modify the response to help GUI
 
-% Last Modified by GUIDE v2.5 25-Mar-2022 22:18:51
+% Last Modified by GUIDE v2.5 29-Mar-2022 18:08:52
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -185,6 +185,9 @@ set(handles.edit1,'String',ans);
 
 % --- Executes on button press in pushbutton18.
 function pushbutton18_Callback(hObject, eventdata, handles)
+textString = get(handles.edit1,'String');%实现一个连号输入
+y = COS(eval(textString));
+set(handles.edit1,'String',y);
 % hObject    handle to pushbutton18 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -192,6 +195,14 @@ function pushbutton18_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in pushbutton19.
 function pushbutton19_Callback(hObject, eventdata, handles)
+textString = get(handles.edit1,'String');%实现一个连号输入
+%xx = strcat(textString,'sin');
+%set(handles.edit1,'String',xx);
+y = SIN(eval(textString));
+
+%textString = SIN(textString);
+set(handles.edit1,'String',y);
+
 % hObject    handle to pushbutton19 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -199,6 +210,9 @@ function pushbutton19_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in pushbutton20.
 function pushbutton20_Callback(hObject, eventdata, handles)
+textString = get(handles.edit1,'String');%实现一个连号输入
+y = arctan(eval(textString));
+set(handles.edit1,'String',y);
 % hObject    handle to pushbutton20 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -206,6 +220,9 @@ function pushbutton20_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in pushbutton21.
 function pushbutton21_Callback(hObject, eventdata, handles)
+textString = get(handles.edit1,'String');%实现一个连号输入
+y = arcsin(eval(textString));
+set(handles.edit1,'String',y);
 % hObject    handle to pushbutton21 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -265,3 +282,4 @@ set(handles.edit1,'String',textString);
 % hObject    handle to pushbutton24 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+guide
