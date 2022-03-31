@@ -22,7 +22,7 @@ function varargout = GUI(varargin)
 
 % Edit the above text to modify the response to help GUI
 
-% Last Modified by GUIDE v2.5 29-Mar-2022 18:08:52
+% Last Modified by GUIDE v2.5 30-Mar-2022 16:29:12
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -199,7 +199,6 @@ textString = get(handles.edit1,'String');%实现一个连号输入
 %xx = strcat(textString,'sin');
 %set(handles.edit1,'String',xx);
 y = SIN(eval(textString));
-
 %textString = SIN(textString);
 set(handles.edit1,'String',y);
 
@@ -283,3 +282,45 @@ set(handles.edit1,'String',textString);
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 guide
+
+
+% --- Executes on button press in pushbutton25.
+function pushbutton25_Callback(hObject, eventdata, handles)
+textString = get(handles.edit1,'String');%实现一个连号输入
+textString = strcat(textString,'+');
+set(handles.edit1,'String',textString);
+% hObject    handle to pushbutton25 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton26.
+function pushbutton26_Callback(hObject, eventdata, handles)
+textString=get(handles.edit1,'String');
+as=char(textString);
+n=length(textString);
+textString=as(1:n-1);
+set(handles.edit1,'String',textString)
+guidata(hObject, handles);
+set(handles.edit1,'String',textString)
+% hObject    handle to pushbutton26 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton27.
+function pushbutton27_Callback(hObject, eventdata, handles)
+textString = get(handles.edit1,'String');%实现一个连号输入
+textString = strcat(textString,'-');
+set(handles.edit1,'String',textString);
+% hObject    handle to pushbutton27 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton28.
+function pushbutton28_Callback(hObject, eventdata, handles)
+set(handles.edit1,'String','')
+% hObject    handle to pushbutton28 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
